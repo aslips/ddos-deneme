@@ -29,4 +29,4 @@ for col in model_features:
 df = df[model_features]
 
 prediction = model.predict(df)
-print("🧠 Tahmin:", prediction[0])
+print(" Tahmin:", prediction[0])
