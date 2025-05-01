@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DDoS Trafik Tahmini</title>
+</head>
+<body>
+    <h2>🛡️ Trafik Sorgulama Formu</h2>
+    <form action="/tahmin" method="POST">
+        <label>IP Adresi:</label><br>
+        <input type="text" name="ip" required><br><br>
+
+        <label>Endpoint:</label><br>
+        <input type="text" name="endpoint" required><br><br>
+
+        <label>Yanıt Süresi (ms):</label><br>
+        <input type="number" name="response_time" step="0.01" required><br><br>
+
+        <label>Saat (0-23):</label><br>
+        <input type="number" name="hour" min="0" max="23" required><br><br>
+
+        <label>Kullanıcı Türü:</label><br>
+        <select name="user_agent_type">
+            <option value="Browser">Browser</option>
+            <option value="CLI">CLI</option>
+        </select><br><br>
+
+        <button type="submit">Tahmin Et</button>
+    </form>
+
+    {% if prediction %}
+    <h3>📊 Tahmin: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
